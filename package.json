@@ -34,6 +34,9 @@
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
+    "clean-css": "^4.2.1",
+    "clean-css-cli": "^4.2.1",
+    "cssmin": "^0.4.3",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
@@ -41,6 +44,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.1.0",
+    "less": "^3.9.0",
+    "less-plugin-js-vars": "^3.0.0",
     "load-grunt-tasks": "^3.5.2"
   },
   "config": {
