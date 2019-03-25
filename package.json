@@ -34,9 +34,7 @@
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
-    "clean-css": "^4.2.1",
     "clean-css-cli": "^4.2.1",
-    "cssmin": "^0.4.3",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
