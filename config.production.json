@@ -7,7 +7,7 @@
                 "use_filename": true,
                 "unique_filename": false,
                 "overwrite": false,
-                "folder": "blog.quenk.com",
+                "folder": "trinistorm.org",
                 "tags": ["blog"]
             },
             "fetch": {
