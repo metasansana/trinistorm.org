@@ -1,24 +1,36 @@
 {
-  "name": "ghost-storage-cloudinary",
-  "version": "1.1.2",
-  "description": "Cloudinary storage adapter for Ghost >= 1.x",
-  "main": "index.js",
-  "keywords": [
-    "cloudinary",
-    "ghost",
-    "blog",
-    "image",
-    "storage",
-    "module"
+  "_from": "ghost-storage-cloudinary",
+  "_id": "ghost-storage-cloudinary@2.1.3",
+  "_inBundle": false,
+  "_integrity": "sha512-3mkZgBDSi57zr4ZYLZG0NvkVry0FZfo7VMPvwKpsoatT5qAeaiwSOL8sKuVcAH+X1AxF+VSMXl5w4dCpsqQ6Uw==",
+  "_location": "/ghost-storage-cloudinary",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "ghost-storage-cloudinary",
+    "name": "ghost-storage-cloudinary",
+    "escapedName": "ghost-storage-cloudinary",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eexit/ghost-storage-cloudinary"
+  "_resolved": "https://registry.npmjs.org/ghost-storage-cloudinary/-/ghost-storage-cloudinary-2.1.3.tgz",
+  "_shasum": "b9fd89d7d7c3b0e82274678461dc855427cd47a5",
+  "_spec": "ghost-storage-cloudinary",
+  "_where": "/home/master/Code/consulting/lmurray/themes/trinistorm/content/adapters/storage/ass",
+  "author": {
+    "name": "Joris Berthelot",
+    "email": "admin@eexit.net"
   },
   "bugs": {
     "url": "https://github.com/eexit/ghost-storage-cloudinary/issues"
   },
-  "author": "Joris Berthelot <admin@eexit.net>",
+  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Seth Brasile",
@@ -33,28 +45,49 @@
       "email": "afriyandi@cizzu.com"
     }
   ],
-  "license": "ISC",
-  "scripts": {
-    "test": "nyc --reporter=lcov mocha tests/index",
-    "eslint": "$(npm bin)/eslint ."
-  },
   "dependencies": {
-    "bluebird": "3.5.2",
-    "cloudinary": "~1.12.0",
-    "ghost-ignition": "^2.9.6",
-    "ghost-storage-base": "0.0.2",
-    "image-size": "^0.6.2",
-    "lodash": "^4.17.10",
-    "npm": "^6.5.0"
+    "bluebird": "^3.7.0",
+    "cloudinary": "~1.21.0",
+    "ghost-ignition": "^4.0.0",
+    "ghost-storage-base": "0.0.5",
+    "image-size": "^0.8.2",
+    "lodash": "^4.17.15",
+    "npm": "^6.14.8",
+    "os-locale": "^5.0.0"
   },
+  "deprecated": false,
+  "description": "Cloudinary storage adapter for Ghost",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^5.0.0",
-    "eslint-plugin-mocha": "^5.0.0",
-    "istanbul": "^0.4.5",
-    "moment": "^2.22.1",
-    "nock": "^10.0.0",
-    "nyc": "^12.0.1",
-    "sinon": "^6.0.0"
-  }
+    "chai": "^4.2.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-mocha": "^7.0.1",
+    "moment": "^2.24.0",
+    "nock": "^12.0.3",
+    "nyc": "^15.0.0",
+    "sinon": "^9.0.1"
+  },
+  "engines": {
+    "node": "^10.0.0 || ^12.0.0"
+  },
+  "homepage": "https://github.com/eexit/ghost-storage-cloudinary#readme",
+  "keywords": [
+    "cloudinary",
+    "ghost",
+    "blog",
+    "image",
+    "storage",
+    "module"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "ghost-storage-cloudinary",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eexit/ghost-storage-cloudinary.git"
+  },
+  "scripts": {
+    "eslint": "$(npm bin)/eslint .",
+    "test": "nyc --reporter=lcov mocha tests/index"
+  },
+  "version": "2.1.3"
 }

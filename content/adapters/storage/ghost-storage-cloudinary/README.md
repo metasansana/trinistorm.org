@@ -10,43 +10,24 @@ A fully featured and deeply tested [Cloudinary](https://cloudinary.com/) [Ghost]
 
 ### Features
 
-- Ghost version `1.x` (not tested on Ghost `2.x`)
+- Compatible with all Ghost versions :rocket:
 - Latest Cloudinary NodeJS [SDK](https://github.com/cloudinary/cloudinary_npm)
-- Image upload, existence check & deletion
-- Ability to upload in dated sub-directories (alike Ghost default Local storage adapter `YYYY/MM`)
-- Ability to upload images into a directory
+- Image upload, existence check & deletion (when Ghost will support it)
+- Ability to upload in dated sub-directories (alike first Ghost default Local storage adapter `YYYY/MM`)
+- Ability to upload images into a specific directory
 - Ability to tag images
 - Cool [plugins](plugins)!
-- Compatible with [mmornati/ghost-cloudinary-store](https://github.com/mmornati/ghost-cloudinary-store) configuration
+- Should be compatible with [mmornati/ghost-cloudinary-store](https://github.com/mmornati/ghost-cloudinary-store) configuration
 
 ## Installation
 
-### Install from Git
+### Install from Yarn
 
 - Go into Ghost root directory
-- Navigate to the `/core/server/adapters/storage` directory
-- Download the adpater:
+- Download the adapter:
 
 ```bash
-$ git clone git@github.com:eexit/ghost-storage-cloudinary.git
-```
-
-- Install the dependencies:
-
-```bash
-$ cd ghost-storage-cloudinary
-$ npm install --production
-```
-
-- Done, go configure
-
-### Install from NPM
-
-- Go into Ghost root directory
-- Download the adpater:
-
-```bash
-$ npm install --production --no-save ghost-storage-cloudinary
+$ yarn add ghost-storage-cloudinary@2
 $ mv node_modules/ghost-storage-cloudinary core/server/adapters/storage
 ```
 
@@ -57,11 +38,13 @@ $ mv node_modules/ghost-storage-cloudinary core/server/adapters/storage
 Here's an example of using this adapter with a containerized Ghost:
 
 ```Dockerfile
-FROM ghost:1.21-alpine
+FROM ghost:3-alpine as cloudinary
 WORKDIR $GHOST_INSTALL/current
-RUN npm install --production --loglevel=error --no-save ghost-storage-cloudinary
-RUN mv node_modules/ghost-storage-cloudinary core/server/adapters/storage
-WORKDIR $GHOST_INSTALL
+RUN su-exec node yarn add ghost-storage-cloudinary@2
+
+FROM ghost:3-alpine
+COPY --chown=node:node --from=cloudinary $GHOST_INSTALL/current/node_modules $GHOST_INSTALL/current/node_modules
+COPY --chown=node:node --from=cloudinary $GHOST_INSTALL/current/node_modules/ghost-storage-cloudinary $GHOST_INSTALL/current/core/server/adapters/storage/ghost-storage-cloudinary
 RUN set -ex; \
     su-exec node ghost config storage.active ghost-storage-cloudinary; \
     su-exec node ghost config storage.ghost-storage-cloudinary.upload.use_filename true; \
@@ -73,14 +56,17 @@ RUN set -ex; \
 
 Here, we use the Ghost CLI to set some pre-defined values.
 
+:information_source: For Ghost version `1.x`, use `ghost-storage-cloudinary@1` package version.
+
 ## Configuration
 
-Check out [configuration.sample.json](configuration.sample.json) for a complete example.
+Check out [configuration.json.dist](configuration.json.dist) for a complete example.
 
+- Ensure to disable Ghost [Image Optimisation](https://ghost.org/docs/concepts/config/#image-optimisation)
 - The optional `useDatedFolder = false` to upload images in dated sub-directories (alike default Ghost Local storage adapter)
 - The `auth` property is optional if you use the `CLOUDINARY_URL` environment variable [authentification method](https://cloudinary.com/documentation/node_additional_topics#configuration_options)
 - The optional `upload` property contains Cloudinary API [upload options](https://cloudinary.com/documentation/image_upload_api_reference#upload)
-- The optional `fetch` property contains Cloudinary API [image transformation options](https://cloudinary.com/documentation/image_transformation_reference)
+- The optional `fetch` property contains Cloudinary API [image transformation options](https://cloudinary.com/documentation/image_transformations)
 
 ### Recommended configuration
 
@@ -98,19 +84,15 @@ Check out [configuration.sample.json](configuration.sample.json) for a complete 
 
 ## Development
 
-Run `npm install` without the `--production` flag.
+Run `yarn install` without the `--production` flag.
 
-Runs the tests:
+Runs the tests and generate coverage:
 
 	$ npm t
 
-Generates the coverage:
-
-	$ npm run-script cover
-
 Runs the linter:
 
-	$ npm run-script eslint
+	$ npm run eslint
 
 To enable debug logs, set the following environment variable:
 
@@ -119,4 +101,3 @@ To enable debug logs, set the following environment variable:
 ---
 
 Many thanks to @[mmornati](https://github.com/mmornati), @[sethbrasile](https://github.com/sethbrasile) and all other contributors for their work. In the continuation of this project, don't hesitate to fork, contribute and add more features.
-
