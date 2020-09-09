@@ -4,7 +4,7 @@
     "demo": "http://attila.zutrinken.com",
     "version": "1.7.6",
     "engines": {
-        "ghost": ">=2.1.0",
+        "ghost": ">=3.32.1",
         "ghost-api": "v3",
         "ghost-cli": "1.9.9"
     },
@@ -36,7 +36,7 @@
     },
     "devDependencies": {
         "autoprefixer-core": "^6.0.1",
-        "clean-css-cli": "^4.2.1",
+        "clean-css-cli": "^4.3.0",
         "grunt": "^1.0.1",
         "grunt-contrib-clean": "^1.1.0",
         "grunt-contrib-copy": "^1.0.0",
@@ -44,14 +44,14 @@
         "grunt-contrib-watch": "^1.0.0",
         "grunt-postcss": "^0.9.0",
         "grunt-sass": "^2.1.0",
-        "less": "^3.9.0",
+        "gscan": "^3.5.7",
+        "less": "^3.12.2",
         "less-plugin-js-vars": "^3.0.0",
-        "load-grunt-tasks": "^3.5.2"
+        "load-grunt-tasks": "^3.5.2",
+        "nodemon": "^2.0.4"
     },
     "config": {
         "posts_per_page": 10
     },
-    "dependencies": {
-        "nodemon": "^1.19.4"
-    }
+    "dependencies": {}
 }
