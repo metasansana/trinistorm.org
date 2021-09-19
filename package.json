@@ -44,7 +44,7 @@
         "grunt-contrib-watch": "^1.0.0",
         "grunt-postcss": "^0.9.0",
         "grunt-sass": "^2.1.0",
-        "gscan": "^3.5.7",
+        "gscan": "^4.2.1",
         "less": "^3.12.2",
         "less-plugin-js-vars": "^3.0.0",
         "load-grunt-tasks": "^3.5.2",
