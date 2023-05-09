@@ -1,58 +1,38 @@
-# Attila
+# Journal
 
-A content focused responsive theme for [Ghost](http://github.com/tryghost/ghost/).
+A minimal, typography-heavy newsletter theme for [Ghost](https://github.com/TryGhost/Ghost).
 
-## Demo
+**Demo: https://journal.ghost.io**
 
-* [Blog](http://attila.zutrinken.com/)
-* [Post](http://attila.zutrinken.com/demo/)
-* [Tag Archive](http://attila.zutrinken.com/tag/general/)
-* [Author Archive](http://attila.zutrinken.com/author/zutrinken/)
+# Instructions
 
-## Screenshots
+1. [Download this theme](https://github.com/TryGhost/Journal/archive/main.zip)
+2. Log into Ghost, and go to the `Design` settings area to upload the zip file
 
-<table>
-<tr>
-<td valign="top">
-<img src="https://raw.githubusercontent.com/zutrinken/attila/master/src/screenshot-desktop.jpg" />
-</td>
-<td valign="top">
-<img src="https://raw.githubusercontent.com/zutrinken/attila/master/src/screenshot-mobile.jpg" />
-</td>
-</tr>
-</table>
+# Development
 
-## Features
+Edition styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
 
-* Responsive layout
-* Navigation support
-* Paralax cover images for posts, author archives and blog
-* Author informations for posts and author archives
-* Featured posts
-* Reading progress for posts
-* Automatic code syntax highlight and line numbers
-* Disqus support
-* Subscribers support
-* Sharing buttons
+```bash
+# Install
+yarn
 
-## Setup
+# Run build & watch for changes
+yarn dev
+```
 
-To enable [Disqus](https://disqus.com/) comments go to your blogs code injection settings and add `<script>var disqus = 'YOUR_DISQUS_SHORTNAME';</script>` to your blog header.
+Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
 
-## Development
+The `zip` Gulp task packages the theme files into `dist/journal.zip`, which you can then upload to your site.
 
-Install [Grunt](http://gruntjs.com/getting-started/):
+```bash
+yarn zip
+```
 
-	npm install -g grunt-cli
+# Contribution
 
-Install Grunt dependencies:
+This repo is synced automatically with [TryGhost/Themes](https://github.com/TryGhost/Themes) monorepo. If you're looking to contribute or raise an issue, head over to the main repository [TryGhost/Themes](https://github.com/TryGhost/Themes) where our official themes are developed.
 
-	npm install
+# Copyright & License
 
-Build Grunt project:
-
-	grunt build
-
-## Copyright & License
-
-Copyright (C) 2015-2019 Peter Amende - Released under the [MIT License](https://github.com/zutrinken/attila/blob/master/LICENSE).
+Copyright (c) 2013-2022 Ghost Foundation - Released under the [MIT license](LICENSE).

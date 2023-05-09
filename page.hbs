@@ -2,39 +2,29 @@
 
 {{#post}}
 
-<header id="post-header"{{#if cover_image}} class="has-cover" {{/if}}>
-	<div class="inner">
-		<nav id="navigation">
-			{{#if @site.logo}}
-			<span class="blog-logo">
-				<a href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{t "Blog Logo"}}" /></a>
-			</span>
-			{{else}}
-			<span id="home-button" class="nav-button">
-				<a class="home-button" href="{{@site.url}}" title="{{t "Home"}}"><i class="ic ic-arrow-left"></i> Home</a>
-			</span>
-			{{/if}}
-			{{#if @site.navigation}}
-			<span id="menu-button" class="nav-button">
-				<a class="menu-button"><i class="ic ic-menu"></i> {{t "Menu"}}</a>
-			</span>
-			{{/if}}
-		</nav>
-		<h1 class="post-title">{{{title}}}</h1>
-		{{#if cover_image}}<div class="post-cover cover" style="background-image: url('{{img_url cover_image}}');"></div>{{/if}}
-	</div>
-</header>
+<main id="gh-main" class="gh-main">
+    <article class="gh-article no-image">
 
-<main class="content" role="main">
-	<article class="{{post_class}}">
-		<div class="inner">
+        <header class="gh-article-header gh-canvas">
+          {{#has slug="about" }}
+            {{> "me-image"}}
+            <h1 class="gh-article-title">{{title}}</h1>
+          {{else}}
 
-			<section class="post-content">
-				{{content}}
-			</section>
+          <h1 class="gh-article-title">{{title}}</h1>
 
-		</div>
-	</article>
+            {{#if custom_excerpt}}
+                <p class="gh-article-excerpt">{{custom_excerpt}}</p>
+            {{/if}}
+            {{> "feature-image"}}
+          {{/has}}
+        </header>
+
+        <div class="gh-content gh-canvas">
+            {{content}}
+        </div>
+
+    </article>
 </main>
 
 {{/post}}
